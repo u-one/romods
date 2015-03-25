@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "MyHTTPConnection.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,8 @@
     
     // ポート未指定の場合ランダムで設定されるので、適当なポート番号を指定する
     [httpServer setPort:SERVER_PORT];
+
+    [httpServer setConnectionClass:[MyHttpConnection class]];
     
     // ドキュメントルートに「htdocs」を指定する
     [httpServer setDocumentRoot:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"htdocs"]];
